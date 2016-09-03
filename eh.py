@@ -76,6 +76,28 @@ def roro():
 	return num/den
 
 
+def num10bullshit():
+	p = 9.35*(10**-24)
+	d = 2.15*(10**-10)
+	r = {}
+	for n in range(1, 10):
+		val = (n*h)/(p*d)
+		r[n] = []
+		try:
+			r[n].append(math.asin(val))
+			if 0 < math.asin(val) < pi / 2:
+				r[n].append(pi - math.asin(val))
+			elif pi / 2 < math.asin(val) < pi:
+				r[n].append(pi - math.asin(val))
+			elif pi < math.asin(val) < 3 * pi / 4:
+				r[n].append(pi + math.asin(val))
+		except:
+			print(val)
+	for key in r:
+		print("------n = "+str(key))
+		for i in r[key]:
+			print(i*180/pi)
+
 # -----------------Problem Sets--------------------
 def Exercise5():
 	print("Helium: " + str(orbit_energy(Z=2, orbit=1)*6.242*(10**18)) + "ev| Wavelength: " + str(
@@ -103,7 +125,7 @@ def Exercise7():
 
 
 def Exercise8():
-	deltaE = delta_E(n1=1, n2=2, Z=30)*6.242*(10**18)
+	deltaE = delta_E(n1=1, n2=2, Z=2)*6.242*(10**18)
 	print("delta E of Zn: " + str(deltaE) + "eV")
 	print("KE: " + str(deltaE-4.30))
 
@@ -115,6 +137,15 @@ def Exercise9():
 	den = 3*kb*(wavelength**2)*m
 	print("The required temperature is: " + str(num/den))
 
+
+def Exercise10():
+	eh = h/((3.97*(10**-24)))
+	print(eh)
+	print(eh / (2.15*(10**-10)))
+	ehe = eh / (2.15*(10**-10))
+	print("Degrees: " + str(math.asin(ehe)*180/pi) + " and " + str(180 - math.asin(ehe)*180/pi))
+	print("----------------------------")
+	num10bullshit()
 
 def answers():
 	print('Exercise 5')
@@ -142,4 +173,8 @@ def answers():
 	Exercise9()
 	print('')
 
+	print('Exercise 10')
+	print('')
+	Exercise10()
+	print('')
 answers()
