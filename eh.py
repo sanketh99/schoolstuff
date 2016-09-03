@@ -30,8 +30,6 @@ def diamond():
 
 
 def radius_of_bohrs_orbit(n, Z):
-	# num = 4*pi*(n**2)*((h/(2*pi))**2)*eo
-	# den = me*Z*(charge_e**2)
 	num = (n**2)*(h**2)*eo
 	den = me*Z*(charge_e**2)*pi
 	return num/den
@@ -45,7 +43,7 @@ def orbit_energy(Z, orbit):
 
 
 def wavelength(Z):
-	val = orbit_energy(Z=Z, orbit=1)
+	val = abs(orbit_energy(Z=Z, orbit=1))
 	conversion = 10**9
 	return (h*c)/val * conversion
 
@@ -72,14 +70,20 @@ def tata(Z):
 	return num/den
 
 
+def roro():
+	num = (charge_e**2)
+	den = 2*eo*h
+	return num/den
+
+
 # -----------------Problem Sets--------------------
 def Exercise5():
-	print("Helium: " + str(orbit_energy(Z=2, orbit=1) * 1.602 * (10 ** 19)) + "ev| Wavelength: " + str(
+	print("Helium: " + str(orbit_energy(Z=2, orbit=1)*6.242*(10**18)) + "ev| Wavelength: " + str(
 		-1 * wavelength(2)) + "nm")
 	# print("Helium: " + str(tata(2) * 1.602 * (10 ** 19)))
-	print("Lithium: " + str(orbit_energy(Z=3, orbit=1) * 1.602 * (10 ** 19)) + "ev| Wavelength: " + str(
+	print("Lithium: " + str(orbit_energy(Z=3, orbit=1)*6.242*(10**18)) + "ev| Wavelength: " + str(
 		-1 * wavelength(3)) + "nm")
-	print("Carbon: " + str(orbit_energy(Z=6, orbit=1) * 1.602 * (10 ** 19)) + "ev| Wavelength: " + str(
+	print("Carbon: " + str(orbit_energy(Z=6, orbit=1)*6.242*(10**18)) + "ev| Wavelength: " + str(
 		-1 * wavelength(6)) + "nm")
 
 
@@ -99,7 +103,7 @@ def Exercise7():
 
 
 def Exercise8():
-	deltaE = delta_E(n1=1, n2=2, Z=30)*1.602*(10**19)
+	deltaE = delta_E(n1=1, n2=2, Z=30)*6.242*(10**18)
 	print("delta E of Zn: " + str(deltaE) + "eV")
 	print("KE: " + str(deltaE-4.30))
 
