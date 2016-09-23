@@ -1,7 +1,6 @@
-from sympy import integrate
+from Utils.Function import Function, ExponentialDistribution
+from Utils.Function import NormalDistribution
 
-from Utils.Function import Function
 
-
-f = Function('2*x')
-print(f.evaluate(49.8,50.25))
+e = ExponentialDistribution(mean=3)
+print(e.calcP(3))
